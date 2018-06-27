@@ -32,7 +32,7 @@ pages](https://help.github.com/) are also very good.
 ----------------------------------------------------------------------
 #### <a name="whatisgit"></a>What is Git? And GitHub?
 
-git is a versioning system, like svn but better. It allows you to work offline, committing changes to a local "clone" of the repository, and then pushing them to the remote repository when you get back to wifi. 
+Git is a versioning system, like svn but better. It allows you to work offline, committing changes to a local "clone" of the repository, and then pushing them to the remote repository when you get back to wifi. 
 
 GitHub is a web service that hosts remote git repositories and enables collaboration via some nice tools. Repositories (or "repos" as they are known on GitHub) can be either public, enabling any of your colleagues to provide feedback or contribute to your project, or private, in case you need to
 make blind datasets or something. The LSST DESC has an "organization" on GitHub to keep its repos together in one place. It's nice. Here's the <a href="https://github.com/DarkEnergyScienceCollaboration">LSST DESC Organization homepage</a> and here's an <a href="https://github.com/drphilmarshall/Pangloss">example of a repository</a> that you can browse around in.
@@ -162,7 +162,7 @@ Date: Thu Jul 2 09:59:47 2015 -0700<br/>
    Initial version<br/>
 </pre>
 
-Those horrendous hexadecimal strings are "commit IDs" - they are what what you need to revert to an old version of your document. Actually, you don't need the whole string, just the first 7 characters. Suppose you want to go back and work on your old version (the one where you added the references but before you merged in the rubbish that Phil wrote). Here's what what you would do:
+Those horrendous hexadecimal strings are "commit IDs" - they are what you need to revert to an old version of your document. Actually, you don't need the whole string, just the first 7 characters. Suppose you want to go back and work on your old version (the one where you added the references but before you merged in the rubbish that Phil wrote). Here's what what you would do:
 
 <table>
   <tbody>
@@ -264,7 +264,7 @@ Now, suppose you want to submit your version of the document to a journal. You t
   </tbody>
 </table>
 
-Hopefully this shows something of how git makes keeping track of your changes much simpler. You only ever edit one file, and you only have to do minimal manual editing to merge changes from multiple collaborators ("konflicts" between different versions of the same files do arise, but only when the same lines of the file have been edited, and so they are usually easy to fix - certainly much easier than merging two versions by hand in an editor). Branches take a bit of getting used to: a git checkout can make your current working directory look very different, unlike any other unix command you use! But thinking of it as being like "cd" is helpful. The "git status" command is incredibly useful: it tells you which files have been modified since the last commit, if there are any files that have not yet been added to the repository, if any files have been deleted since the last commit, all as well as which branch you are on.
+Hopefully this shows something of how git makes keeping track of your changes much simpler. You only ever edit one file, and you only have to do minimal manual editing to merge changes from multiple collaborators ("Conflicts" between different versions of the same files do arise, but only when the same lines of the file have been edited, and so they are usually easy to fix - certainly much easier than merging two versions by hand in an editor). Branches take a bit of getting used to: a git checkout can make your current working directory look very different, unlike any other unix command you use! But thinking of it as being like "cd" is helpful. The "git status" command is incredibly useful: it tells you which files have been modified since the last commit, if there are any files that have not yet been added to the repository, if any files have been deleted since the last commit, all as well as which branch you are on.
 
 As you might have guessed, git pull is actually a shortcut to two commands one after the other: git fetch (to get any new commits from the remote repository) and git merge (to merge the files in the remote branch with the current local one). Unlike with doing things by hand, it's actually quite hard to over-write files and lose work. Git will not let you pull in other people's changes until you have committed yours, and it will not let you push your changes to a remote repository until you have first pulled its changes in and merged them. And finding old versions by your commented history is much easier than trying to remember the meaning of your own filenames!
 
@@ -289,7 +289,7 @@ If you have been given write access to a GitHub repository, you can "clone" it t
 
 To clone a repo, look down the right hand sidebar of its GitHub page. You should see "http clone URL" and a clipboard icon next to it. Under this there is the "SSH" option - select this, and then click on the clipboard. You now have the address of the remote repo in your clipboard. Go to your terminal, and cd to the place where you want your copy of the repo to live (it has its own folder). Then do "git clone &lt;paste&gt;" and hit return.
 
-When you first do this, it will fail. Read the messinge! Git error messinges are almost always very helpful. This one says that your ssh keys need to be set, so let's do that. Go to your profile (the very top right hand corner of the GitHub window, there should be a picture of you) and choose "settings". In the resulting list is an entry called <a href="https://github.com/settings/ssh">"SSH Keys"</a> in the left hand side bar. Go here and paste in your **public** SSH key. This enables GitHub to let you upload files to its server over SSH without typing your GitHub password all the time. If you don't know what what an SSH key is, the help links on the SSH keys page you are on are pretty helpful.
+When you first do this, it will fail. Read the message! Git error messages are almost always very helpful. This one says that your ssh keys need to be set, so let's do that. Go to your profile (the very top right hand corner of the GitHub window, there should be a picture of you) and choose "settings". In the resulting list is an entry called <a href="https://github.com/settings/ssh">"SSH Keys"</a> in the left hand side bar. Go here and paste in your **public** SSH key. This enables GitHub to let you upload files to its server over SSH without typing your GitHub password all the time. If you don't know what what an SSH key is, the help links on the SSH keys page you are on are pretty helpful.
 
 Now repeat the git clone command and you should see a local copy of the repo appear.
 
